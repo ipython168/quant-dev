@@ -15,7 +15,7 @@ Projects/
 
 # --- Data --- 
 data/*
- 
+optimal_result/
 
 # --- Notebooks --- 
 notebooks/quant_dev.ipynb  
@@ -29,3 +29,7 @@ __pycache__/
 # --- Colab Specific ---
 /content/drive
 drive/
+
+
+# --- vm ---
+.venv/optimal_result/

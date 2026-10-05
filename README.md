@@ -2,7 +2,7 @@
 # Quant Dev - Quantitative Trading Backtesting System
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
-[![CI](https://github.com/ipython168-git/quant-dev-git/actions/workflows/test.yml/badge.svg)](https://github.com/ipython168-git/quant-dev-git/actions)
+[![CI](https://github.com/ipython168/quant-dev/actions/workflows/test.yml/badge.svg)](https://github.com/ipython168/quant-dev/actions)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green)](https://fastapi.tiangolo.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2)](https://www.linkedin.com/in/ka-on-yip-5775b0429/)
@@ -51,8 +51,8 @@ DataManager → Strategy → Portfolio → FastAPI → Swagger UI
 
 ### 1. Installation
 ```bash
-git clone https://github.com/ipython168-git/quant-dev-git.git
-cd quant-dev-git
+git clone https://github.com/ipython168/quant-dev.git
+cd quant-dev
 pip install -e .
 ```
 
@@ -157,7 +157,7 @@ Max Drawdown: -24.07%
 ## 📂 Project Structure
 
 ```
-quant-dev-git/
+quant-dev/
 ├── src/quant_dev/
 │   ├── api/          # FastAPI service
 │   ├── backtest/     # Backtest engine (Strategy + Portfolio)
@@ -207,7 +207,7 @@ quant-dev-git/
 Passionate about **Python development** and **quantitative trading system design**. This project is a complete backtesting system built from scratch, showcasing my **engineering capabilities** and **quantitative mindset**.
 
 
-- 🔗 GitHub: [ipython168-git](https://github.com/ipython168-git/quant-dev-git)
+- 🔗 GitHub: [ipython168-git](https://github.com/ipython168-git/quant-dev)
 - 💼 LinkedIn: [LinkedIn](https://www.linkedin.com/in/kaonquant/)
 
 ---
