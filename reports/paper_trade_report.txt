@@ -1,0 +1,32 @@
+🌟 ai_nq25 投資組合績效報告 🌟
+權重: AAPL: 0.040, MSFT: 0.040, GOOGL: 0.040, AMZN: 0.040, META: 0.040, TSLA: 0.040, NVDA: 0.040, ASML: 0.040, PYPL: 0.040, ADBE: 0.040, NFLX: 0.040, INTC: 0.040, CSCO: 0.040, COST: 0.040, AVGO: 0.040, CMCSA: 0.040, PEP: 0.040, AMD: 0.040, TXN: 0.040, INTU: 0.040, TMUS: 0.040, QCOM: 0.040, ISRG: 0.040, SBUX: 0.040, AMAT: 0.040
+槓桿: AAPL: 2.5x, MSFT: 2.5x, GOOGL: 2.5x, AMZN: 2.5x, META: 2.5x, TSLA: 2.5x, NVDA: 2.5x, ASML: 2.5x, PYPL: 2.5x, ADBE: 2.5x, NFLX: 2.5x, INTC: 2.5x, CSCO: 2.5x, COST: 2.5x, AVGO: 2.5x, CMCSA: 2.5x, PEP: 2.5x, AMD: 2.5x, TXN: 2.5x, INTU: 2.5x, TMUS: 2.5x, QCOM: 2.5x, ISRG: 2.5x, SBUX: 2.5x, AMAT: 2.5x
+📋 策略詳情
+    策略: default
+    模式: normal
+    方向: buy
+    參數: {'high': 8, 'low': 8, 'sma': [9, 19]}
+    條件: {'signal_b': 'High > HIGH_8.shift(1) & SMA_9.shift(1) > SMA_19.shift(1)', 'signal_s': 'Low < LOW_8.shift(1)', 'entry_price': 'HIGH_8.shift(1)', 'exit_price': 'LOW_8.shift(1)'}
+    進場: stop (open)
+    出場: stop (open)
+============================================
+🏆 2026-09-29 → 2026-10-05 歷史表現
+🌊 最終 NAV: 9,970.28
+🚀 歷史高點 (ATH): 10,000.00 @ 2026-09-29
+💥 最大回撤 (Max DD): 0.81%
+📅 最大回撤期間: 2026-09-29 → 2026-10-02 (3 天)
+🔄 Max DD 恢復時間: 3 天
+🔄 Max DD 恢復日期: 2026-10-05
+📅 最長 ATH 恢復期間: 2026-10-02 → 2026-10-05
+🔄 Longest recovery 時間: 3 天
+📈 CAGR: -13.93%
+🛡️ MAR Ratio: -17.217
+
+📊 交易統計
+🔢 總交易次數: 1
+🎯 勝率: 100.00%
+💰 平均盈利: 0.00 / 平均虧損: 0.00
+⚖️  盈虧比: inf
+💣 最大連續虧損: 0 次
+
+============================================

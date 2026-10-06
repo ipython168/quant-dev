@@ -1,4 +1,3 @@
-
 # Quant Dev - Quantitative Trading Backtesting System
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
@@ -45,7 +44,24 @@ DataManager → Strategy → Portfolio → FastAPI → Swagger UI
 
 ---
 
+## 🤖 AI Trading Agent
 
+An AI-driven trading agent that generates order suggestions (buy/sell, order type, price) from OHLC data.
+
+**Components:**
+- `trade_agent.py` — Agent interface (generates orders)
+- `network.py` — Model architecture
+
+**Performance:**
+- [V20 Backtest Report (2010-2026)](docs/v20_backtest.md) — Train / OOS performance
+- [Paper Trading Report](docs/paper_trade.md) — Live paper trading since 2026-10-01
+
+**Highlights:**
+- AI outperforms Teacher model on both Sharpe and Calmar in OOS
+- AI achieves lower max drawdown (27.5%) than SH benchmark (39.3%)
+- Universe: NQ25, rebalanced every 6 months
+
+---
 
 ## 🚀 Quick Start
 
@@ -156,18 +172,13 @@ Max Drawdown: -24.07%
 
 ## 📂 Project Structure
 
-```
-quant-dev/
-├── src/quant_dev/
-│   ├── api/          # FastAPI service
-│   ├── backtest/     # Backtest engine (Strategy + Portfolio)
-│   ├── data/         # Data management (DataManager)
-│   ├── strategies/   # Built-in strategies (Golden Cross / Donchian)
-│   └── server/       # Server launcher (ngrok + uvicorn)
-├── tests/            # 38 unit tests
-├── run.sh            # One-click launch (Colab / VM)
-└── pyproject.toml    # Python dependency management
-```
+See [repo root](.) for full structure.
+
+Key modules:
+- `src/quant_dev/` — Core library
+- `docs/` — Written reports
+- `reports/` — Charts & trade logs
+- `tests/` — Unit tests
 
 ---
 
@@ -207,7 +218,7 @@ quant-dev/
 Passionate about **Python development** and **quantitative trading system design**. This project is a complete backtesting system built from scratch, showcasing my **engineering capabilities** and **quantitative mindset**.
 
 
-- 🔗 GitHub: [ipython168-git](https://github.com/ipython168-git/quant-dev)
+- 🔗 GitHub: [ipython168-git](https://github.com/ipython168/quant-dev)
 - 💼 LinkedIn: [LinkedIn](https://www.linkedin.com/in/kaonquant/)
 
 ---

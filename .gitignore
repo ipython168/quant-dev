@@ -32,4 +32,4 @@ drive/
 
 
 # --- vm ---
-.venv/optimal_result/
+.venv/ 
