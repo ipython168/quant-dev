@@ -199,7 +199,7 @@ class ReportUpdater:
         if n_days >= 20:
             sharpe_str = f"{m['sharpe']:.2f}"
         else:
-            sharpe_str = f"{m['sharpe']:.2f} (n={n_days})"
+            sharpe_str = f"{m['sharpe']:.2f} (Period={n_days} 少過 20 日)"
 
         # ✅ Win rate: 少過 5 個 closed trade 唔 meaningful
         total_trades = m.get("total_trades", 0)
@@ -273,14 +273,16 @@ class ReportUpdater:
         print("\n📝 Updating markdown...")
         self.update_markdown()
 
+        print("\n" + "=" * 60)
+        for k, v in self.metrics.items():
+            print(f"   {k}: {v}")
+
+        print("✅ Done")
+        print("=" * 60)
+        
         print("\n📤 Pushing to GitHub...")
         self.push_to_github()
 
-        print("\n" + "=" * 60)
-        print("✅ Done")
-        print("=" * 60)
-        for k, v in self.metrics.items():
-            print(f"   {k}: {v}")
 # ================================================= #
 # Main
 # ================================================= #
