@@ -15,13 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| **Total Return** | *(updated weekly)* |
-| **Sharpe Ratio** | *(updated weekly)* |
-| **Max Drawdown** | *(updated weekly)* |
-| **Win Rate** | *(updated weekly)* |
-| **Total Trades** | *(updated weekly)* |
+| Total Return | -0.30% |
+| Sharpe Ratio | -2.48 |
+| Max Drawdown | -0.81% |
+| Win Rate | 100.00% |
+| Total Trades | 1 |
+
+*Period: 2026-09-29 → 2026-10-05*
+*Last updated: 2026-10-06 08:48*
 
 ---
+
+
 
 ## Charts
 
