@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2)](https://www.linkedin.com/in/ka-on-yip-5775b0429/)
 
-A complete **quantitative trading backtesting system** built from scratch, supporting multi-strategy portfolios, multiple order types, comprehensive performance metrics, and a RESTful API.
+A complete **quantitative trading backtesting system** built from scratch, combining a production-grade backtesting engine with an AI-driven trading agent. Supporting multi-strategy portfolios, multiple order types, comprehensive performance metrics, and a RESTful API.
 
 ---
 
@@ -15,6 +15,7 @@ A complete **quantitative trading backtesting system** built from scratch, suppo
 - **📊 Data Management**: Automated download, caching, and normalization of Yahoo Finance data (daily / minute bars)
 - **⚙️ Strategy Backtesting**: Support for **Market / Limit / Stop Orders** with full **Gap Handling**
 - **📈 Portfolio Management**: Multi-strategy weighting, leverage, NAV/ATH/DD calculations
+- **🤖 AI Trading Agent**: Transformer-based agent generating order suggestions (action + price) from OHLC data
 - **📡 RESTful API**: FastAPI service with auto-generated Swagger documentation
 - **🧪 Testing & CI**: 38 unit tests, automated via GitHub Actions
 
@@ -24,7 +25,10 @@ A complete **quantitative trading backtesting system** built from scratch, suppo
 ```
 DataManager → Strategy → Portfolio → FastAPI → Swagger UI
      ↓            ↓          ↓          ↓
-  (Data)  (Trading)  (Portfolio)  (API Service)
+  (Data)     (Trading)   (Portfolio)  (API Service)
+                  ↑
+            AI Trading Agent
+          (generates orders)
 ```
 
 ---
