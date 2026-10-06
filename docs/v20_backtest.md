@@ -63,10 +63,22 @@
 
 ## Charts
 
-### AI vs Teacher vs SH — Equity Curve
+### nq25 — Equity Curve
+
+![All Curve](../reports/nq25_comparison.png)
+
+### AI — Equity Curve
 
 ![AI Curve](../reports/v20_ai_curve.png)
 
+### Teacher — Equity Curve
+
 ![Teacher Curve](../reports/v20_teacher_curve.png)
 
+### SH — Equity Curve
+
 ![SH Curve](../reports/v20_sh_curve.png)
+
+
+
+

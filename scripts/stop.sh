@@ -1,8 +1,9 @@
 #!/bin/bash
 # 停止 Quant Dev API Server
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+# 確保 working directory 係 repo root
+cd "$(dirname "$0")/.."
+
 
 if [ -f "quant_dev.pid" ]; then
     PID=$(cat quant_dev.pid)

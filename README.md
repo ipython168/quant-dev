@@ -134,8 +134,8 @@ python -m quant_dev
 python -m quant_dev --fg
 
 # Run vm run
-chmod +x run.sh stop.sh status.sh
-./run.sh
+chmod +x ./scripts/run.sh ./scripts/stop.sh ./scripts/status.sh
+./scripts/run.sh
 ```
 
 ---

@@ -1,7 +1,9 @@
 #!/bin/bash
 # Quant Dev API Server 啟動腳本
-# 用法: ./run.sh [--port PORT] [--host HOST]
+# 用法: ./scripts/run.sh [--port PORT] [--host HOST]
 
+# 確保 working directory 係 repo root
+cd "$(dirname "$0")/.."
 
 # 預設值
 PORT=8000
@@ -20,15 +22,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         *)
             echo "未知參數: $1"
-            echo "用法: ./run.sh [--port PORT] [--host HOST]"
+            echo "用法: ./scripts/run.sh [--port PORT] [--host HOST]"
             exit 1
             ;;
     esac
 done
-
-# 搵到專案 root
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
 
 # ============================================================
 # 🔧 清理舊 process（避免 ngrok port 衝突）
