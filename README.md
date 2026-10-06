@@ -59,6 +59,7 @@ An AI-driven trading agent that generates order suggestions (buy/sell, order typ
 - [V20 Backtest Report (2010-2026)](docs/v20_backtest.md) — Train / OOS performance
 - [Paper Trading Report](docs/paper_trade.md) — Live paper trading since 2026-9-29
 
+> 📅 **Performance reports are updated weekly** (paper trading NAV, drawdown, trade log).
 <img src="reports/paper_trade_nav_dd.png" alt="Paper Trading NAV & Drawdown" style="max-width: 900px; width: 100%;"/>
 
 > **Note:** V20 is the production model. Its weights are proprietary and not

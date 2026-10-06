@@ -23,7 +23,7 @@
 | Open Positions | 9 |
 
 *Period: 2026-09-29 → 2026-10-05*
-*Last updated: 2026-10-06 09:24*
+*Last updated: 2026-10-06 09:49*
 
 ---
 
