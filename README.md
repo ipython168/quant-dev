@@ -207,7 +207,7 @@ Max Drawdown: -24.07%
 ```
 
 ### Swagger UI 
-<a href="images/swagger.png"><img src="images/swagger.png" alt="Swagger UI" style="max-height: 400px; max-width: 100%; width: auto;"/></a>
+<a href="images/swagger.png"><img src="images/swagger.png" alt="Swagger UI" style="max-height: 300px; width: auto;"/></a>
 
 ---
 
