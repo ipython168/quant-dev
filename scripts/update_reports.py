@@ -78,6 +78,18 @@ class ReportUpdater:
         cols = ["Date", "nav", "cash", "dd", "ath", "trade_pnl", "trade_return"]
         return df[[c for c in cols if c in df.columns]]
 # ================================================= #
+# Step 2b: Load transaction log
+# ================================================= #
+    def load_trx(self) -> pd.DataFrame:
+        """Load the 'trx' sheet from paper_trade_trx.xlsx."""
+        xlsx_path = self.reports_dir / "paper_trade_trx.xlsx"
+        if not xlsx_path.exists():
+            raise FileNotFoundError(f"Not found: {xlsx_path}")
+
+        df = pd.read_excel(xlsx_path, sheet_name="trx")
+        df["date"] = pd.to_datetime(df["date"])
+        return df
+# ================================================= #
 # Step 3: Compute metrics
 # ================================================= #
     def compute_metrics(self, df: pd.DataFrame) -> dict:
@@ -99,10 +111,6 @@ class ReportUpdater:
 
         max_dd = float(df["dd"].min()) * 100
 
-        trade_pnl = df["trade_pnl"].dropna()
-        total_trades = len(trade_pnl)
-        win_rate = (trade_pnl > 0).mean() * 100 if total_trades > 0 else 0.0
-
         return {
             "period_start": df["Date"].iloc[0].strftime("%Y-%m-%d"),
             "period_end": df["Date"].iloc[-1].strftime("%Y-%m-%d"),
@@ -111,9 +119,69 @@ class ReportUpdater:
             "total_return": total_return,
             "sharpe": sharpe,
             "max_dd": max_dd,
-            "win_rate": win_rate,
-            "total_trades": total_trades,
+            "n_days": len(daily_returns),
             "last_update": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        }
+# ================================================= #
+# Step 3b: Compute trade-level metrics (from trx sheet)
+# ================================================= #
+    def compute_trade_metrics(self, trx_df: pd.DataFrame) -> dict:
+        """
+        Compute trade-level metrics from transaction log.
+
+        Only counts CLOSED trades (both entry and exit exist).
+        Open positions are excluded from win rate and total trades.
+        """
+        entries = trx_df[
+            trx_df["entry"].notna() & trx_df["exit"].isna()
+        ].copy()
+        exits = trx_df[trx_df["exit"].notna()].copy()
+
+        closed_trades = []
+        for ticker in entries["ticker"].dropna().unique():
+            ticker_entries = (
+                entries[entries["ticker"] == ticker]
+                .sort_values("date")
+                .reset_index(drop=True)
+            )
+            ticker_exits = (
+                exits[exits["ticker"] == ticker]
+                .sort_values("date")
+                .reset_index(drop=True)
+            )
+
+            # FIFO matching
+            for _, exit_row in ticker_exits.iterrows():
+                if len(ticker_entries) == 0:
+                    break
+                entry_row = ticker_entries.iloc[0]
+                ticker_entries = ticker_entries.iloc[1:]
+
+                entry_price = abs(entry_row["entry"])
+                exit_price = abs(exit_row["exit"])
+                qty = abs(entry_row["executed_no"])
+                pnl = (exit_price - entry_price) * qty
+
+                closed_trades.append({"ticker": ticker, "pnl": pnl})
+
+        # Open positions = entries not yet matched
+        n_open = len(entries) - len(closed_trades)
+
+        if len(closed_trades) == 0:
+            return {
+                "total_trades": 0,
+                "win_rate": None,
+                "open_positions": n_open,
+            }
+
+        closed_df = pd.DataFrame(closed_trades)
+        total_trades = len(closed_df)
+        win_rate = (closed_df["pnl"] > 0).mean() * 100
+
+        return {
+            "total_trades": total_trades,
+            "win_rate": win_rate,
+            "open_positions": n_open,
         }
 # ================================================= #
 # Step 4: Update docs/paper_trade.md
@@ -126,13 +194,31 @@ class ReportUpdater:
         m = self.metrics
         content = self.docs_md.read_text()
 
+        # ✅ Sharpe: 少過 20 日唔 stable
+        n_days = m.get("n_days", 0)
+        if n_days >= 20:
+            sharpe_str = f"{m['sharpe']:.2f}"
+        else:
+            sharpe_str = f"{m['sharpe']:.2f} (n={n_days})"
+
+        # ✅ Win rate: 少過 5 個 closed trade 唔 meaningful
+        total_trades = m.get("total_trades", 0)
+        if m.get("win_rate") is None:
+            win_rate_str = "N/A (no closed trades)"
+        elif total_trades < 5:
+            win_rate_str = f"{m['win_rate']:.2f}% (n={total_trades})"
+        else:
+            win_rate_str = f"{m['win_rate']:.2f}%"
+
+
         new_table = f"""| Metric | Value |
 |--------|-------|
 | Total Return | {m['total_return']:+.2f}% |
-| Sharpe Ratio | {m['sharpe']:.2f} |
+| Sharpe Ratio | {sharpe_str} |
 | Max Drawdown | {m['max_dd']:.2f}% |
-| Win Rate | {m['win_rate']:.2f}% |
-| Total Trades | {m['total_trades']} |
+| Win Rate | {win_rate_str} |
+| Total Trades | {total_trades} |
+| Open Positions | {m.get('open_positions', 0)} |
 
 *Period: {m['period_start']} → {m['period_end']}*
 *Last updated: {m['last_update']}*
@@ -178,6 +264,10 @@ class ReportUpdater:
         print("\n🧮 Computing metrics...")
         df = self.load_nav_series()
         self.metrics = self.compute_metrics(df)
+
+        trx_df = self.load_trx()
+        self.metrics.update(self.compute_trade_metrics(trx_df))
+
         print(f"   {len(df)} rows | {self.metrics['period_start']} → {self.metrics['period_end']}")
 
         print("\n📝 Updating markdown...")

@@ -16,13 +16,14 @@
 | Metric | Value |
 |--------|-------|
 | Total Return | -0.30% |
-| Sharpe Ratio | -2.48 |
+| Sharpe Ratio | -2.48 (n=2) |
 | Max Drawdown | -0.81% |
-| Win Rate | 100.00% |
-| Total Trades | 1 |
+| Win Rate | N/A (no closed trades) |
+| Total Trades | 0 |
+| Open Positions | 9 |
 
 *Period: 2026-09-29 → 2026-10-05*
-*Last updated: 2026-10-06 08:48*
+*Last updated: 2026-10-06 09:07*
 
 ---
 
