@@ -1,3 +1,4 @@
+# scripts/update_reports.py
 """
 Auto-update reports from on-finance/user/simu and push to GitHub.
 """

@@ -12,6 +12,7 @@ Projects/
 *.pid
 *.out
 *.log
+checkpoints/
 
 # --- Data --- 
 data/*

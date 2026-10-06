@@ -9,7 +9,7 @@ from typing import List, Tuple, Optional
 
 from ..backtest.strategy import Strategy
 from ..backtest.portfolio import Portfolio
-
+# ================================================= # 
 def check_strategy_vs_portfolio(pf):
     """
     Check that each Strategy's entry/exit matches the Portfolio's trade log.
@@ -111,3 +111,4 @@ def check_strategy_vs_portfolio(pf):
     print("=" * 70)
     
     return all_match
+# ================================================= # 

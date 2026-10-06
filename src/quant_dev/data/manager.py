@@ -1,4 +1,4 @@
-# quant_dev/data/manager.py
+# src/quant_dev/data/manager.py
 """
 DataManager - Unified data management entry point (Standalone Version).
 Fully self-contained, with no dependency on on_finance modules.
@@ -9,6 +9,7 @@ Usage:
     df = dm.load_csv("AAPL", timeframe="1d", start_date="2025-01-01")
 
 """
+# ================================================= # 
 import pytz
 import yfinance as yf
 import pandas as pd
@@ -17,10 +18,9 @@ from pathlib import Path
 from typing import Optional, List, Union
 from datetime import datetime, timedelta
 import logging
-
+# ================================================= # 
 logger = logging.getLogger(__name__)
-
-
+# ================================================= # 
 class DataManager:
     """
     Unified data manager (Standalone Version).
@@ -48,11 +48,9 @@ class DataManager:
 
         # Ensure data directory exists
         self.data_dir.mkdir(parents=True, exist_ok=True)
-
-    # ================================================================
-    # Public API
-    # ================================================================
-
+# ================================================= # 
+# Public API
+# ================================================= # 
     def get_or_fetch(
         self,
         ticker: str,
@@ -100,7 +98,7 @@ class DataManager:
         logger.info(f"💾 快取已儲存: {cache_path}")
 
         return self._normalize_index(df, timeframe)
-
+# ================================================= # 
     def load_csv(
         self,
         ticker: str,
@@ -144,7 +142,7 @@ class DataManager:
             df = df[df.index <= end_date]
 
         return df
-
+# ================================================= # 
     def batch_get_or_fetch(
         self,
         tickers: List[str],
@@ -169,11 +167,9 @@ class DataManager:
             df = self.get_or_fetch(ticker, timeframe, days, prepost)
             dfs.append(df)
         return dfs
-
-    # ================================================================
-    # Internal Methods 
-    # ================================================================
-
+# ================================================= # 
+# Internal Methods 
+# ================================================= # 
     def _download(
         self,
         ticker: str,
@@ -208,7 +204,7 @@ class DataManager:
         df = df[[c for c in ohlc_cols if c in df.columns]]
 
         return df
-
+# ================================================= # 
     def _read_csv(self, file_path: Path) -> pd.DataFrame:
         """
         Read CSV (standard format).
@@ -220,15 +216,14 @@ class DataManager:
         if df.index.name is None:
             df.index.name = 'Date'
         return df 
-
-
+# ================================================= # 
     def _save_csv(self, df: pd.DataFrame, file_path: Path) -> None:
         """
         Save CSV (standard format, no MultiIndex).
         Style follows on_finance/data/loader.py.
         """
         df.to_csv(file_path)
-
+# ================================================= # 
     def _get_cache_path(self, ticker: str, interval: str, prepost: bool) -> Path:
         """
         Get cache file path.
@@ -238,7 +233,7 @@ class DataManager:
         folder.mkdir(parents=True, exist_ok=True)
         filename = f"{ticker}_prepost.csv" if prepost else f"{ticker}.csv"
         return folder / filename
-
+# ================================================= # 
     def _timeframe_to_interval(self, timeframe: str) -> str:
         """Convert timeframe to yfinance interval."""
         mapping = {
@@ -251,11 +246,9 @@ class DataManager:
             "1m": "1m",
         }
         return mapping.get(timeframe, timeframe)
-
-    # ================================================================
-    # Index Normalization 
-    # ================================================================
-
+# ================================================= # 
+# Index Normalization 
+# ================================================= # 
     def _normalize_index(self, df: pd.DataFrame, timeframe: str) -> pd.DataFrame:
         """
         Normalize index format:
@@ -271,7 +264,7 @@ class DataManager:
 
         df = df.sort_index()
         return df
-
+# ================================================= # 
     def _normalize_daily_index(self, df: pd.DataFrame) -> pd.DataFrame:
         """Daily bars → date-only (timezone-naive)."""
         if not isinstance(df.index, pd.DatetimeIndex):
@@ -282,7 +275,7 @@ class DataManager:
 
         df.index = df.index.normalize()
         return df
-
+# ================================================= # 
     def _normalize_intraday_index(self, df: pd.DataFrame) -> pd.DataFrame:
         """Intraday bars → UTC datetime (timezone-naive)."""
         if not isinstance(df.index, pd.DatetimeIndex):
@@ -294,11 +287,9 @@ class DataManager:
             df.index = df.index.tz_convert("UTC")
         df.index = df.index.tz_localize(None)
         return df
-
-    # ================================================================
-    # Timezone Helpers 
-    # ================================================================
-
+# ================================================= # 
+# Timezone Helpers 
+# ================================================= # 
     def to_market_time(self, dt) -> datetime:
         """Convert UTC time to market local time."""
         if isinstance(dt, np.datetime64):
@@ -312,11 +303,11 @@ class DataManager:
             dt = dt.astimezone(self._tz)
 
         return dt
-
+# ================================================= # 
     def now_market(self) -> datetime:
         """Get current time in market timezone."""
         return datetime.now(self._tz)
-
+# ================================================= # 
     def info(self, df: pd.DataFrame) -> str:
         """Display debug information for the DataFrame."""
         return (
@@ -328,3 +319,9 @@ class DataManager:
             f"Market TZ: {self.market_tz}\n"
             f"Columns: {list(df.columns)}"
         )
+# ================================================= # 
+
+
+
+
+# ================================================= # 

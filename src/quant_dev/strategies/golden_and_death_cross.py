@@ -1,14 +1,14 @@
-# quant_dev/strategies/golden_and_death_cross.py
+# src/quant_dev/strategies/golden_and_death_cross.py
 """
 Golden Cross / Death Cross strategy.
 """
+# ================================================= # 
 import pandas as pd
 import numpy as np
 from typing import Optional
 
 from ..backtest.strategy import Strategy, StrategyOption
-
-
+# ================================================= # 
 def create_golden_and_death_cross_strategy( 
     ticker: str,
     sma_fast: int = 20,
@@ -74,4 +74,7 @@ def create_golden_and_death_cross_strategy(
 
     strat.run()
     return strat
+# ================================================= # 
 
+
+# ================================================= # 

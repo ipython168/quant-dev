@@ -61,6 +61,35 @@ An AI-driven trading agent that generates order suggestions (buy/sell, order typ
 - AI achieves lower max drawdown (27.5%) than SH benchmark (39.3%)
 - Universe: NQ25, rebalanced every 6 months
 
+
+
+### Quick Start - AI Order (demo model)
+
+```python
+from quant_dev.ai import TradeAgent, AIContext
+from quant_dev.data.manager import DataManager
+
+# 1. Prepare OHLCV data (last 300 bars)
+dm = DataManager()
+df = dm.get_or_fetch("AAPL", timeframe="1d", days=450)
+ohlcv = df[["Open", "High", "Low", "Close", "Volume"]].tail(300)
+
+# 2. Load demo agent from HuggingFace Hub
+agent = TradeAgent.from_pretrained("ipython168/trader-transformer-v14")
+
+# 3. Generate AI order
+context = AIContext(ohlcv=ohlcv, current_position=0, direction="buy")
+order = agent.compute_action(context)
+
+print(order.action)   # "entry" / "exit" / "hold"
+print(order.price)    # e.g. 320.53
+```
+
+Demo models:
+| Model ID | Architecture |
+|----------|-------------|
+| ipython168/trader-transformer-v14 | Transformer (public demo) |
+
 ---
 
 ## 🚀 Quick Start

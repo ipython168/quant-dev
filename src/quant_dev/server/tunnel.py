@@ -1,13 +1,12 @@
 # quant_dev/server/tunnel.py
-
 """
 ngrok tunnel management
 """
+# ================================================= # 
 import os
 import sys
 from pyngrok import ngrok
-
-
+# ================================================= # 
 def get_ngrok_token() -> str:
     """Retrieve ngrok auth token (multiple methods)."""
     token = None
@@ -45,8 +44,7 @@ def get_ngrok_token() -> str:
     print("="*60)
     token = input("Paste your token: ").strip()
     return token
-
-
+# ================================================= # 
 def setup_ngrok(port: int = 8000) -> str:
     """Configure ngrok and open tunnel, return public URL"""
     token = get_ngrok_token()
@@ -60,8 +58,7 @@ def setup_ngrok(port: int = 8000) -> str:
 
     tunnel = ngrok.connect(port)
     return tunnel.public_url
-
-
+# ================================================= # 
 def print_endpoints(url: str):
     """Print available endpoints"""
     print("\n" + "="*60)
@@ -74,12 +71,12 @@ def print_endpoints(url: str):
     print(f"   POST {url}/data/download?ticker=AAPL&days=500")
     print(f"   POST {url}/backtest")
     print("="*60)
+# ================================================= # 
+# ================================================= # 
 
 
 
-
-
-
+# ================================================= # 
 
 
 

@@ -1,20 +1,20 @@
-# quant_dev/__main__.py
+# src/quant_dev/__main__.py
 """
 quant_dev main entry point.
 Usage:
     python -m quant_dev              
     python -m quant_dev --port 8001  # specify port
 """
+# ================================================= # 
 import argparse
 import time
-
+# ================================================= # 
 from quant_dev.server import (
     setup_ngrok,
     print_endpoints,
     run_server,
 )
-
-
+# ================================================= # 
 def main():
     parser = argparse.ArgumentParser(description="Quant Dev API Server")
     parser.add_argument("--port", type=int, default=8000, help="Server port")
@@ -38,10 +38,10 @@ def main():
             time.sleep(10)
     except KeyboardInterrupt:
         print("\n🛑 Server stopped")
-
-
+# ================================================= # 
 if __name__ == "__main__":
     main()
+# ================================================= # 
 
 
 

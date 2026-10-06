@@ -1,14 +1,14 @@
-# quant_dev/strategies/donchian_breakout.py
+# src/quant_dev/strategies/donchian_breakout.py
 """
 Donchian Channel breakout strategy.
 """
+# ================================================= # 
 import pandas as pd
 import numpy as np
 from typing import Optional
 
 from ..backtest.strategy import Strategy, StrategyOption
-
-
+# ================================================= # 
 def create_donchian_breakout_strategy( 
     ticker: str,
     period: int = 20,
@@ -62,3 +62,6 @@ def create_donchian_breakout_strategy(
 
     strat.run()
     return strat
+# ================================================= # 
+
+# ================================================= # 
