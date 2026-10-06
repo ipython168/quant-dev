@@ -1,4 +1,6 @@
-# Quant Dev - Quantitative Trading Backtesting System
+# Quant Dev - Quantitative Trading & AI Agent
+
+> From backtest to live AI-driven orders — a complete quantitative trading stack in Python.
 
 [![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
 [![CI](https://github.com/ipython168/quant-dev/actions/workflows/test.yml/badge.svg)](https://github.com/ipython168/quant-dev/actions)
@@ -6,7 +8,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2)](https://www.linkedin.com/in/ka-on-yip-5775b0429/)
 
-A complete **quantitative trading backtesting system** built from scratch, combining a production-grade backtesting engine with an AI-driven trading agent. Supporting multi-strategy portfolios, multiple order types, comprehensive performance metrics, and a RESTful API.
+A complete quantitative trading system built from scratch — combining a production-grade backtesting engine with an AI-driven trading agent. Supports multi-strategy portfolios, multiple order types, comprehensive performance metrics, and a RESTful API.
 
 ---
 
@@ -53,9 +55,13 @@ An AI-driven trading agent that generates order suggestions (buy/sell, order typ
 - `trade_agent.py` — Agent interface (generates orders)
 - `network.py` — Model architecture
 
-**Performance:**
+**Performance (V20, proprietary):**
 - [V20 Backtest Report (2010-2026)](docs/v20_backtest.md) — Train / OOS performance
-- [Paper Trading Report](docs/paper_trade.md) — Live paper trading since 2026-10-01
+- [Paper Trading Report](docs/paper_trade.md) — Live paper trading since 2026-9-29
+
+> **Note:** V20 is the production model. Its weights are proprietary and not
+> publicly available. The demo below uses a public Transformer checkpoint (v14)
+> to demonstrate the inference interface.
 
 **Highlights:**
 - AI outperforms Teacher model on both Sharpe and Calmar in OOS
@@ -208,10 +214,11 @@ Max Drawdown: -24.07%
 See [repo root](.) for full structure.
 
 Key modules:
-- `src/quant_dev/` — Core library
-- `docs/` — Written reports
-- `reports/` — Charts & trade logs
-- `tests/` — Unit tests
+- `src/quant_dev/` — Core library (data, backtest, strategies, ai, api)
+- `docs/` — Written reports (v20 backtest, paper trading)
+- `reports/` — Charts & trade logs (PNG, CSV)
+- `tests/` — Unit tests (38 tests)
+
 
 ---
 
@@ -248,7 +255,7 @@ Key modules:
 
 ## 🙋‍♂️ About Me
 
-Passionate about **Python development** and **quantitative trading system design**. This project is a complete backtesting system built from scratch, showcasing my **engineering capabilities** and **quantitative mindset**.
+Passionate about **Python development** and **quantitative trading**, and **AI-driven systems**. This project is a complete quantitative trading stack built from scratch, from backtest to live AI agent — showcasing my **engineering capabilities** and **quantitative mindset**.
 
 
 - 🔗 GitHub: [ipython168-git](https://github.com/ipython168/quant-dev)
