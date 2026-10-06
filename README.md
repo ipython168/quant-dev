@@ -36,9 +36,6 @@ DataManager → Strategy → Portfolio → FastAPI → Swagger UI
 
 ## 📸 Screenshots
 
-### Swagger UI
-<a href="images/swagger.png"><img src="images/swagger.png" alt="Swagger UI" width="600"/></a>
-
 ### Backtest Result
 ![Backtest Result](images/backtest_result.jpg)
 
@@ -67,7 +64,7 @@ An AI-driven trading agent that generates order suggestions (buy/sell, order typ
 
 
 
-### Quick Start - AI Order (demo model)
+### AI Order (demo model)
 
 ```python
 from quant_dev.ai import TradeAgent, AIContext
@@ -195,11 +192,14 @@ https://your-ngrok-url.ngrok-free.dev/docs
 
 **Sample Backtest Results:**
 ```
-Total Return: 56.16%
-Annual Return: 17.85%
-Sharpe Ratio: 0.77
+Total Return: 55.36%
+Annual Return: 17.62%
+Sharpe Ratio: 0.76
 Max Drawdown: -24.07%
 ```
+
+### Swagger UI
+<a href="images/swagger.png"><img src="images/swagger.png" alt="Swagger UI" width="600"/></a>
 
 ---
 
