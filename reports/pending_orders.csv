@@ -1,3 +1,2 @@
 date,pf_id,ticker,action,price,qty,order_type,trd_side,entry_or_exit
-2026-10-05,ai_nq25,ASML,entry,1844.2,0,stop,buy,entry
-2026-10-05,ai_nq25,AMAT,entry,533.23,1,stop,buy,entry
+2026-10-06,ai_nq25,TSLA,entry,370.24,2,stop,buy,entry
