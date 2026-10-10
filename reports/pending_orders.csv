@@ -1,2 +1,2 @@
 date,pf_id,ticker,action,price,qty,order_type,trd_side,entry_or_exit
-2026-10-07,ai_nq25,ASML,entry,1869.78,0,stop,buy,entry
+2026-10-09,ai_nq25,AVGO,entry,365.31,2,stop,buy,entry
