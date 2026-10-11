@@ -261,7 +261,7 @@ Key modules:
 Passionate about **Python development** and **quantitative trading**, and **AI-driven systems**. This project is a complete quantitative trading stack built from scratch, from backtest to live AI agent — showcasing my **engineering capabilities** and **quantitative mindset**.
 
 
-- 🔗 GitHub: [ipython168-git](https://github.com/ipython168/quant-dev)
+- 🔗 GitHub: [ipython168](https://github.com/ipython168/quant-dev)
 - 💼 LinkedIn: [LinkedIn](https://www.linkedin.com/in/kaonquant/)
 
 ---
@@ -280,3 +280,5 @@ Passionate about **Python development** and **quantitative trading**, and **AI-d
 
 
  
+
+

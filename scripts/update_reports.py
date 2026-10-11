@@ -287,6 +287,9 @@ class ReportUpdater:
 # Main
 # ================================================= #
 def main():
+    import sys
+    sys.path.insert(0, "/content/drive/MyDrive/develop/Projects/ifunc/src")
+    sys.path.insert(0, "/content/drive/MyDrive/develop/Projects/quant-dev/src")
     updater = ReportUpdater(push=True)
     updater.run()
 # ================================================= #
