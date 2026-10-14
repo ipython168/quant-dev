@@ -15,15 +15,15 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Return | -1.95% |
-| Sharpe Ratio | -10.46 (Period=5 少過 20 日) |
-| Max Drawdown | -1.95% |
-| Win Rate | N/A (no closed trades) |
-| Total Trades | 0 |
+| Total Return | -4.00% |
+| Sharpe Ratio | -14.07 (Period=7 少過 20 日) |
+| Max Drawdown | -4.00% |
+| Win Rate | 0.00% (n=2) |
+| Total Trades | 2 |
 | Open Positions | 15 |
 
-*Period: 2026-09-29 → 2026-10-09*
-*Last updated: 2026-10-11 14:46*
+*Period: 2026-09-29 → 2026-10-14*
+*Last updated: 2026-10-14 23:04*
 
 ---
 
