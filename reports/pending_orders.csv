@@ -1,3 +1,3 @@
 date,pf_id,ticker,action,price,qty,order_type,trd_side,entry_or_exit
-2026-10-14,ai_nq25,AMD,exit,583.52,1,stop,sell,exit
-2026-10-14,ai_nq25,QCOM,exit,178.18,5,stop,sell,exit
+2026-10-15,ai_nq25,NVDA,exit,222.07,4,stop,sell,exit
+2026-10-15,ai_nq25,CSCO,exit,104.17,8,stop,sell,exit
