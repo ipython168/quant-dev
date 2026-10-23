@@ -1,2 +1,2 @@
 date,pf_id,ticker,action,price,qty,order_type,trd_side,entry_or_exit
-2026-10-19,ai_nq25,ADBE,entry,228.93,3,stop,buy,entry
+2026-10-22,ai_nq25,META,exit,635.06,1,stop,sell,exit
